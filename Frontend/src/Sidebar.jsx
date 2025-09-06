@@ -8,7 +8,7 @@ function Sidebar() {
 
    const getAllThreads = async() => {
       try {
-         const response = await fetch("https://sigma-gpt-1.onrender.com/api/thread");
+         const response = await fetch("https://sigma-gpt-2.onrender.com/api/thread");
          const res = await response.json();
          const filteredData = res.map(thread =>({
             threadId: thread.ThreadId,
@@ -38,7 +38,7 @@ function Sidebar() {
          setCurrThreadId(newThreadId);
 
          try{
-            const response = await fetch(`https://sigma-gpt-1.onrender.com/api/thread/${newThreadId}`);
+            const response = await fetch(`https://sigma-gpt-2.onrender.com/api/thread/${newThreadId}`);
             const res = await response.json();
             console.log(res);
             setPrevChats(res);
@@ -51,7 +51,7 @@ function Sidebar() {
 
       const deleteThread = async(threadId) => {
          try{
-            const response = await fetch(`https://sigma-gpt-1.onrender.com/api/thread/${threadId}`, {method: 'DELETE'});
+            const response = await fetch(`https://sigma-gpt-2.onrender.com/api/thread/${threadId}`, {method: 'DELETE'});
             const res = await response.json();
             console.log(res);
 
@@ -69,7 +69,7 @@ function Sidebar() {
         <section className="sidebar"> 
 
          <button onClick={createNewChat} >
-            <img src="src/assets/blacklogo.png" alt="gpt logo" className="logo"></img>
+            <img src="/assets/blacklogo.png" alt="gpt logo" className="logo"></img>
             <span><i className="fa-solid fa-pen-to-square"></i></span>
          </button>
 
